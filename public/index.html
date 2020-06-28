@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+    <title><%- VUE_APP_TITLE %></title>
+    <meta name="googlebot" content="noarchive">
+    <meta name="robots" content="noarchive">
+    <meta name="slurp" content="noarchive">
+    <meta name="msnbot" content="noarchive">
+    <meta name="teoma" content="noarchive">
+    <meta name="author" content="Elokapina">
+    <meta name="description" content="<%- VUE_APP_SUBTITLE %>">
+    <meta property="og:site_name" content="<%- VUE_APP_TITLE %>">
+    <meta property="og:title" content="<%- VUE_APP_TITLE %>">
+    <meta property="og:description" content="<%- VUE_APP_SUBTITLE %>">
+    <meta property="og:url" content="<%- VUE_APP_URL %>">
+    <meta property="og:image" content="pictures/<%- VUE_APP_IMAGE %>">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="<%- VUE_APP_LANGUAGE_CODE %>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%- VUE_APP_TITLE %>">
+    <% if (VUE_APP_TWITTER_ACCOUNT) { %>
+    <meta name="twitter:creator" content="@<%- VUE_APP_TWITTER_ACCOUNT %>">
+    <% } %>
+    <meta name="twitter:image" content="pictures/<%- VUE_APP_IMAGE %>">
+    <meta http-equiv="Content-Language" content="<%- VUE_APP_LANGUAGE_CODE %>">
+  </head>
+  <body>
+    <noscript>
+      <strong>
+        This page requires JavaScript to be enabled - sorry!
+      </strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
