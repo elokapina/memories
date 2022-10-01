@@ -2,6 +2,9 @@
   "name": "memories",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": ">=14"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
