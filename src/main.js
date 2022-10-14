@@ -1,18 +1,12 @@
-import Vue from 'vue'
 import VueAgile from 'vue-agile'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faChevronLeft, faChevronRight, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { createApp } from 'vue'
 
 import App from './App.vue'
 
-library.add(faChevronLeft, faChevronRight, faInfoCircle)
+const app = createApp(App)
 
-Vue.use(VueAgile)
-Vue.component('font-awesome-icon', FontAwesomeIcon)
+app.use(VueAgile)
 
-Vue.config.productionTip = false
+app.config.productionTip = false
 
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app')
+app.mount('#app')
