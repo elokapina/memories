@@ -71,14 +71,18 @@ export default {
     },
   },
   mounted() {
-    // Preload the gallery images
+    // Preload a few gallery images
     // noinspection JSMismatchedCollectionQueryUpdate
     const images = []
-    config.pictures.forEach(picture => {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const [idx, picture] of config.pictures.entries()) {
       const image = new Image()
       image.src = `/pictures/${picture}`
       images.push(image)
-    })
+      if (idx > 5) {
+        break
+      }
+    }
   },
 }
 </script>
