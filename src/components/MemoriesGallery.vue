@@ -29,11 +29,11 @@
       />
 
       <template slot="prevButton">
-        ←
+        <font-awesome-icon :icon="['fa', 'chevron-left']" />
       </template>
 
       <template slot="nextButton">
-        →
+        <font-awesome-icon :icon="['fa', 'chevron-right']" />
       </template>
     </agile>
     <audio id="audio-speech" autoplay loop preload="auto" controls>
