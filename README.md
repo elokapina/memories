@@ -32,7 +32,7 @@ refresh your images, just repeat this step.
 Get a list of your images and place them in your preferred order into the `config.js`
 `pictures` array.
 
-Hint: `ls -1 public/pictures/ | xargs -I img echo '"img",` for an easily copypasteable list.
+Hint: `ls -1 public/pictures/ | xargs -I img echo '"img",'` for an easily copypasteable list.
 
 ### Image captions
 
