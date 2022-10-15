@@ -1,3 +1,4 @@
+<!--suppress CssInvalidPseudoSelector -->
 <template>
   <div>
     <agile
@@ -37,6 +38,7 @@
       </template>
     </agile>
     <audio id="audio-speech" autoplay loop preload="auto" controls>
+      <!--suppress HtmlUnknownTarget -->
       <source src="audio.mp3" type="audio/mpeg">
     </audio>
     <div v-if="longCaptionVisible" class="long-caption-container small-text">
