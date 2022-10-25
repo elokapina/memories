@@ -8,6 +8,9 @@ originals/
 /public/audio.mp3
 /public/logo.png
 config.js
+backend_conf.js
+/src/backend/pictures/*
+!/src/backend/pictures/.gitkeep
 
 # local env files
 .env.local

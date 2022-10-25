@@ -3,15 +3,7 @@
 module.exports = {
   languageCode: 'fi',
   logoTargetUrl: "https://elokapina.fi",
-  pictures: [
-    '01.jpg',
-  ],
-  pictureProperties: {
-    '01.jpg': {
-      caption: 'Caption',
-      longCaption: 'Very long caption.',
-    },
-  },
+  backendUrl: "https://kuvia.elokapina.fi",
   texts: {
     closeByClicking: 'Sulje tästä',
     introTextLink: "Näyttely toimii parhaiten äänet päällä. Jos se ei ole mahdollista, lue näyttelyn esittely ensin",
@@ -25,7 +17,8 @@ module.exports = {
     start: "Katso näyttely",
     subtitle: "Tervetuloa näyttelyyn.",
     title: "Hieno näyttely",
+    inputCode: "Syötä gallerian pääsykoodi",
   },
   twitterAccount: 'elokapina',
-  url: 'https://galleria.elokapina.fi',
+  url: 'https://kuvia.elokapina.fi',
 }

@@ -13,20 +13,20 @@
       ref="carousel"
     >
       <template slot="caption">
-        {{ caption }}
-        <span v-if="longCaption" class="pointer-text">
+        {{ (picture || {}).caption || '' }}
+        <span v-if="(picture || {}).longCaption" class="pointer-text">
           <br>
           <span v-on:click="showLongCaption" class="underline-text">({{ config.texts.showCaption }})</span>
         </span>
       </template>
 
       <img
-        v-for="picture in config.pictures"
+        v-for="picture in pictures"
         v-on:click="closeLongCaption"
         class="slide"
-        :src="`/pictures/${picture}`"
-        :key="picture"
-        :alt="caption"
+        :src="picture.url"
+        :key="picture.key"
+        :alt="picture.caption"
       />
 
       <template slot="prevButton">
@@ -42,7 +42,7 @@
       <source src="audio.mp3" type="audio/mpeg">
     </audio>
     <div v-if="longCaptionVisible" class="long-caption-container small-text">
-      {{ longCaption }}
+      {{ picture.longCaption }}
       <div class="tiny-text pull-to-right">
         <span v-on:click="closeLongCaption" class="pointer-text underline-text">
           {{ config.texts.closeByClicking }}
@@ -61,6 +61,9 @@ export default {
   components: {
     agile: VueAgile,
   },
+  props: [
+    "pictures",
+  ],
   data() {
     return {
       autoplay: true,
@@ -69,23 +72,11 @@ export default {
     }
   },
   computed: {
-    caption() {
-      if (config.pictureProperties[this.picture]) {
-        return config.pictureProperties[this.picture].caption || ''
-      }
-      return ''
-    },
     config() {
       return config
     },
-    longCaption() {
-      if (config.pictureProperties[this.picture]) {
-        return config.pictureProperties[this.picture].longCaption || ''
-      }
-      return ''
-    },
     picture() {
-      return config.pictures[this.currentSlide]
+      return this.pictures.find(o => o.key === this.currentSlide)
     },
   },
   methods: {
