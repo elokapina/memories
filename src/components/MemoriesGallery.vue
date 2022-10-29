@@ -76,7 +76,7 @@ export default {
       return config
     },
     picture() {
-      return this.pictures.find(o => o.key === this.currentSlide)
+      return this.pictures.find(o => o.key === this.currentSlide.toString())
     },
   },
   methods: {
