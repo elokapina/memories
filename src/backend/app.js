@@ -15,7 +15,11 @@ app.get('/images/:code', (req, res) => {
   const { code } = req.params
   if (backendConf.codes[code] !== undefined) {
     console.info(`Images returned for code ${code}`)
-    res.json(backendConf.codes[code])
+    const response = {
+      pictures: backendConf.codes[code],
+      properties: backendConf.properties || {},
+    }
+    res.json(response)
   } else {
     res.status(403).send()
   }
@@ -28,7 +32,7 @@ app.get('/images/:code/:image', (req, res, next) => {
     res.status(403).send()
     return
   }
-  if (backendConf.codes[code].pictures.includes(image) === undefined) {
+  if (backendConf.codes[code].includes(image) === undefined) {
     console.warn(`404 ${req.path}`)
     res.status(404).send()
     return
