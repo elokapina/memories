@@ -77,6 +77,13 @@ export default {
       return config
     },
   },
+  mounted() {
+    const path = window.location.pathname
+    if (path !== "/") {
+      this.code = path.slice(1)
+      this.codeChange()
+    }
+  },
   methods: {
     showTheGallery() {
       this.logoClasses = 'logo'
