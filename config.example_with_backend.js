@@ -23,4 +23,6 @@ module.exports = {
   twitterAccount: 'elokapina',
   url: 'https://kuvia.elokapina.fi',
   autoPlayIntervalSeconds: 30,
+  // If using a backend, enable passing in the code in the url
+  enableCodeBasedUrls: true,
 }

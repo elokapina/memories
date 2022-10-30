@@ -85,10 +85,12 @@ export default {
     },
   },
   mounted() {
-    const path = window.location.pathname
-    if (path !== "/") {
-      this.code = path.slice(1)
-      this.codeChange()
+    if (this.codeRequired && config.enableCodeBasedUrls) {
+      const path = window.location.pathname
+      if (path !== "/") {
+        this.code = path.slice(1)
+        this.codeChange()
+      }
     }
   },
   methods: {
