@@ -8,7 +8,7 @@
       :dots="false"
       :change-delay="200"
       :autoplay="autoplay"
-      :autoplaySpeed="30000"
+      :autoplaySpeed="config.autoPlayIntervalSeconds * 1000"
       :speed="1000"
       ref="carousel"
     >

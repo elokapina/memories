@@ -29,4 +29,5 @@ module.exports = {
   },
   twitterAccount: 'elokapina',
   url: 'https://kuvia.elokapina.fi',
+  autoPlayIntervalSeconds: 30,
 }
