@@ -83,8 +83,12 @@ export default {
     onKey(ev) {
       if (ev.key === "ArrowLeft") {
         this.$refs.carousel.goToPrev()
+        this.autoplay = false
+        this.$refs.carousel.isAutoplayPaused = true
       } else if (ev.key === "ArrowRight" || ev.code === "Space") {
         this.$refs.carousel.goToNext()
+        this.autoplay = false
+        this.$refs.carousel.isAutoplayPaused = true
       }
     },
     closeLongCaption() {
