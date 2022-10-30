@@ -71,6 +71,12 @@ file and add as needed. If you don't want captions, ignore this step.
 
 The top-left logo comes from `public/logo.png`. Copy your PNG format file there.
 
+### Styling
+
+If you want to override some styling, put it in `public/custom.css`. Don't forget
+to add some `!important` to the styles where necessary to ensure they override
+the Vue generated component styles.
+
 ### Audio
 
 There is an audio file that starts playing when the user enters the gallery.

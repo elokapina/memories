@@ -11,6 +11,7 @@ config.js
 backend_conf.js
 /src/backend/pictures/*
 !/src/backend/pictures/.gitkeep
+public/custom.css
 
 # local env files
 .env.local
