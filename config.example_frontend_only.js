@@ -26,6 +26,7 @@ module.exports = {
     start: "Katso näyttely",
     subtitle: "Tervetuloa näyttelyyn.",
     title: "Hieno näyttely",
+    help: "Näyttely toimii parhaiten äänet päällä. Kuvia voi vaihtaa nuolinäppäimillä ja välilyönnillä, tai klikkaamalla nuolia.",
   },
   twitterAccount: 'elokapina',
   url: 'https://kuvia.elokapina.fi',

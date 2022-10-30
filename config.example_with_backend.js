@@ -18,6 +18,7 @@ module.exports = {
     subtitle: "Tervetuloa näyttelyyn.",
     title: "Hieno näyttely",
     inputCode: "Syötä gallerian pääsykoodi",
+    help: "Näyttely toimii parhaiten äänet päällä. Kuvia voi vaihtaa nuolinäppäimillä ja välilyönnillä, tai klikkaamalla nuolia.",
   },
   twitterAccount: 'elokapina',
   url: 'https://kuvia.elokapina.fi',

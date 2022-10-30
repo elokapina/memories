@@ -41,6 +41,12 @@ refresh your images, just repeat this step.
 
   `cp config.example_with_backend.js config.js` to initialize the frontend config.
 
+The config files are pretty self-explanatory. Some of them control behaviour:
+
+* Removing or setting `texts.introTextLinkClickHere` to `false` will immediately render 
+  the intro text.
+* Removing or setting `texts.help` to `false` will hide the help text section.
+
 ### Configure image list
 
 Get a list of your images to be placed in your preferred order into the config files.

@@ -31,7 +31,11 @@
         <div class="normal-text buffered">
           {{ config.texts.subtitle }}
         </div>
-        <div v-on:click="showTheGallery" class="header-text pointer-text underline-text large-text buffered">
+        <div
+          v-if="!showIntro"
+          v-on:click="showTheGallery"
+          class="header-text pointer-text underline-text large-text buffered"
+        >
           {{ config.texts.start }}
         </div>
         <div v-if="showIntro" class="small-text intro-container">
@@ -45,6 +49,9 @@
           <span v-on:click="showIntroText" class="underline-text pointer-text">
             {{ config.texts.introTextLinkClickHere }}
           </span>.
+        </div>
+        <div v-if="config.texts.help" class="small-text intro-container">
+          {{ config.texts.help }}
         </div>
         <div></div>
       </div>
@@ -66,7 +73,7 @@ export default {
     return {
       logoClasses: 'logo logo-landing',
       showGallery: false,
-      showIntro: false,
+      showIntro: !config.texts.introTextLinkClickHere,
       pictures: [],
       codeRequired: config.backendUrl !== undefined,
       code: "",
