@@ -109,7 +109,7 @@ export default {
       for (const [idx, picture] of data.pictures.entries()) {
         this.pictures.push({
           key: `${idx}`,
-          url: `${config.backendUrl}/images/${this.code}/${picture}`,
+          url: `pictures/${this.code}/${picture}`,
           caption: data.properties?.[picture]?.caption || '',
           longCaption: data.properties?.[picture]?.longCaption || '',
         })

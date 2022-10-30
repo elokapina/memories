@@ -17,17 +17,9 @@ The purely frontend version just has one image list without any access controls.
 In the following instructions, choose "frontend only" or "frontend + backend", where
 applicable.
 
-### Choosing your images
+### Choose your images
 
 Choose your images and place them in a folder called `originals`. Create it if necessary.
-
-Install `imagemagick` if you don't have it and in the project root folder execute the following:
-
-* Frontend only: `mogrify -path public/pictures -resize 1920 -quality 85 -format jpg originals/*`
-* Frontend + backend: `mogrify -path src/backend/pictures -resize 1920 -quality 85 -format jpg originals/*`
-
-This will resize the images and drop their quality a bit for web usage. When you want to
-refresh your images, just repeat this step.
 
 ### Init configuration file
 
@@ -59,6 +51,19 @@ Hint: `ls -1 originals/ | xargs -I img echo '"img",'` for an easily copypasteabl
 `backend_conf.js` file. The key of the property in `codes` is the access key to 
 the gallery. Put the relevant images for each gallery (code) in the array 
 under the code, as in the example config file.
+
+### Optimize and copy images
+
+Install `imagemagick` if you don't have it and in the project root folder execute the following:
+
+```bash
+node prepare_pictures.js
+```
+
+This will resize the images and drop their quality a bit for web usage. When you want to
+refresh your images, just repeat this step.
+
+If you have configured backend mode, the images will be copied to code specific subfolders. 
 
 ### Image captions
 

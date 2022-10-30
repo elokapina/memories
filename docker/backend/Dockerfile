@@ -8,4 +8,4 @@ WORKDIR /app
 
 RUN npm i
 
-CMD node src/backend/app.js
+CMD node src/backend.js
