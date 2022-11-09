@@ -2,12 +2,18 @@
 node_modules
 /dist
 originals/
+converted/
 /public/pictures/*
 !/public/pictures/.gitkeep
 /public/favicon.png
 /public/audio.mp3
 /public/logo.png
 config.js
+backend_conf.js
+/src/backend/pictures/*
+!/src/backend/pictures/.gitkeep
+public/custom.css
+memories-*
 
 # local env files
 .env.local

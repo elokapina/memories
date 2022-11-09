@@ -6,8 +6,21 @@
         :class="logoClasses"
         alt="logo">
     </a>
-    <div v-if="showGallery">
-      <MemoriesGallery />
+    <div v-if="codeRequired">
+      <div class="code-container header-text large-text">
+        {{ config.texts.inputCode }}
+        <input
+          class="code-input"
+          type="text"
+          v-model="code"
+          v-on:keyup="codeChange"
+        />
+      </div>
+    </div>
+    <div v-else-if="showGallery">
+      <MemoriesGallery
+        v-bind:pictures="pictures"
+      />
     </div>
     <div v-else>
       <div class="grid-container">
@@ -18,7 +31,11 @@
         <div class="normal-text buffered">
           {{ config.texts.subtitle }}
         </div>
-        <div v-on:click="showTheGallery" class="header-text pointer-text underline-text large-text buffered">
+        <div
+          v-if="!showIntro"
+          v-on:click="showTheGallery"
+          class="header-text pointer-text underline-text large-text buffered"
+        >
           {{ config.texts.start }}
         </div>
         <div v-if="showIntro" class="small-text intro-container">
@@ -32,6 +49,9 @@
           <span v-on:click="showIntroText" class="underline-text pointer-text">
             {{ config.texts.introTextLinkClickHere }}
           </span>.
+        </div>
+        <div v-if="config.texts.help" class="small-text intro-container">
+          {{ config.texts.help }}
         </div>
         <div></div>
       </div>
@@ -53,13 +73,25 @@ export default {
     return {
       logoClasses: 'logo logo-landing',
       showGallery: false,
-      showIntro: false,
+      showIntro: !config.texts.introTextLinkClickHere,
+      pictures: [],
+      codeRequired: config.backendUrl !== undefined,
+      code: "",
     }
   },
   computed: {
     config() {
       return config
     },
+  },
+  mounted() {
+    if (this.codeRequired && config.enableCodeBasedUrls) {
+      const path = window.location.pathname
+      if (path !== "/") {
+        this.code = path.slice(1)
+        this.codeChange()
+      }
+    }
   },
   methods: {
     showTheGallery() {
@@ -69,20 +101,38 @@ export default {
     showIntroText() {
       this.showIntro = true
     },
-  },
-  mounted() {
-    // Preload a few gallery images
-    // noinspection JSMismatchedCollectionQueryUpdate
-    const images = []
-    // eslint-disable-next-line no-restricted-syntax
-    for (const [idx, picture] of config.pictures.entries()) {
-      const image = new Image()
-      image.src = `/pictures/${picture}`
-      images.push(image)
-      if (idx > 5) {
-        break
+    async codeChange() {
+      const response = await fetch(`${config.backendUrl}/images/${this.code}`)
+      if (!response.ok) {
+        return
       }
-    }
+      const data = await response.json()
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [idx, picture] of data.pictures.entries()) {
+        this.pictures.push({
+          key: `${idx}`,
+          url: `pictures/${this.code}/${picture}`,
+          caption: data.properties?.[picture]?.caption || '',
+          longCaption: data.properties?.[picture]?.longCaption || '',
+        })
+      }
+      this.codeRequired = false
+      this.preload()
+    },
+    preload() {
+      // Preload a few gallery images
+      // noinspection JSMismatchedCollectionQueryUpdate
+      const images = []
+      // eslint-disable-next-line no-restricted-syntax
+      for (const [idx, picture] of this.pictures.entries()) {
+        const image = new Image()
+        image.src = picture.url
+        images.push(image)
+        if (idx > 5) {
+          break
+        }
+      }
+    },
   },
 }
 </script>
@@ -114,6 +164,17 @@ export default {
     height: 100%
     .buffered
       margin: 40px 0
+
+.code-container
+  display: grid
+  justify-content: center
+  text-align: center
+  margin-top: 10%
+  width: 100%
+  height: 30pt
+
+.code-input
+  height: 100pt
 
 .intro-container
   margin: 0 15%

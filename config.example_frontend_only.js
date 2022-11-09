@@ -5,6 +5,7 @@ module.exports = {
   logoTargetUrl: "https://elokapina.fi",
   pictures: [
     '01.jpg',
+    '02.jpg',
   ],
   pictureProperties: {
     '01.jpg': {
@@ -25,7 +26,9 @@ module.exports = {
     start: "Katso näyttely",
     subtitle: "Tervetuloa näyttelyyn.",
     title: "Hieno näyttely",
+    help: "Näyttely toimii parhaiten äänet päällä. Kuvia voi vaihtaa nuolinäppäimillä ja välilyönnillä, tai klikkaamalla nuolia. Näppäimistöllä navigoidessa auto-play on pois päältä.",
   },
   twitterAccount: 'elokapina',
-  url: 'https://galleria.elokapina.fi',
+  url: 'https://kuvia.elokapina.fi',
+  autoPlayIntervalSeconds: 30,
 }
