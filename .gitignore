@@ -5,6 +5,8 @@ originals/
 converted/
 /public/pictures/*
 !/public/pictures/.gitkeep
+/backendPictures/*
+!/backendPictures/.gitkeep
 /public/favicon.png
 /public/audio.mp3
 /public/logo.png

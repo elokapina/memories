@@ -52,6 +52,13 @@ Hint: `ls -1 originals/ | xargs -I img echo '"img",'` for an easily copypasteabl
 the gallery. Put the relevant images for each gallery (code) in the array 
 under the code, as in the example config file.
 
+  Optionally, in backend mode, you can additionally split each code into personal codes.
+  This fits the case where you have a set of images available to the same people, but want
+  to be given them personalized access codes to the same image set. Put these personal codes
+  into a `personalCodes` object into the `backend_conf.js` file. The key should be the personal
+  code and the value the target code (a key in `codes`). If using `personalCodes`, the images
+  will not be available via the main `codes`, so you need to choose one or the other.
+
 ### Optimize and copy images
 
 Install `imagemagick` if you don't have it and in the project root folder execute the following:

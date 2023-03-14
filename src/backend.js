@@ -13,16 +13,20 @@ backend.get('/health', (req, res) => {
 
 backend.get('/images/:code', (req, res) => {
   const { code } = req.params
-  if (backendConf.codes[code] !== undefined) {
-    const response = {
-      pictures: backendConf.codes[code],
-      properties: backendConf.properties || {},
-    }
-    res.json(response)
-    console.info(`[${new Date()}] Images returned for code ${code}`)
-  } else {
+  const personalCodes = backendConf.personalCodes !== undefined && Object.keys(backendConf.personalCodes).length
+  if (
+    (personalCodes && backendConf.personalCodes[code] === undefined) ||
+    (!personalCodes && backendConf.codes[code] === undefined)
+  ) {
     res.status(403).send()
+    return
   }
+  const response = {
+    pictures: personalCodes ? backendConf.codes[backendConf.personalCodes[code]] : backendConf.codes[code],
+    properties: backendConf.properties || {},
+  }
+  res.json(response)
+  console.info(`[${new Date()}] Images returned for code ${code}`)
 })
 
 backend.listen(3000, () => {

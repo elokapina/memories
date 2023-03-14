@@ -9,6 +9,10 @@ module.exports = {
       '04.jpg',
     ],
   },
+  personalCodes: {
+    AAUAFB: "foobar",
+    FEWJKF: "foobar",
+  },
   properties: {
     '01.jpg': {
       caption: 'Caption',
