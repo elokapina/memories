@@ -16,7 +16,7 @@
     "@fortawesome/vue-fontawesome": "<3",
     "core-js": "^3.29.1",
     "cors": "^2.8.5",
-    "express": "^4.18.2",
+    "express": "^4.19.2",
     "vue": "<3",
     "vue-agile": "^2.0.0"
   },
