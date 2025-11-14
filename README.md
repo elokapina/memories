@@ -2,8 +2,7 @@
 
 Gallery application with landing page and audio/text intro.
 
-Originally made for the XR Finland chapter gallery to celebrate
-brave rebels fighting against climate change: https://galleria.elokapina.fi
+Made for the XR Finland chapter gallery to celebrate brave rebels fighting against climate change.
 
 ## Usage
 
